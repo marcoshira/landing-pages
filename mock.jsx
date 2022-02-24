@@ -6,7 +6,7 @@ export const mockBase = {
   children: (
     <>
       <GridText {...gridMock} background />
-      <GridText {...gridMock} />
+      <GridText {...gridMock} background />
       <GridText {...gridMock} background />
       <GridText {...gridMock} />
       <GridText {...gridMock} background />
