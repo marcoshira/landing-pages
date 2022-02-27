@@ -18,21 +18,16 @@ import { PageNotFound } from '../PageNotFound';
 import { Loading } from '../Loading';
 
 import config from '../../config';
+import datajson from '../../api/dados.json';
 
 function Home() {
   const [data, setData] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
-    const pathname = location.pathname.replace(/[^a-z0-9-_]/gi, '');
-    const slug = pathname ? pathname : config.defaultSlug;
-
     const load = async () => {
       try {
-        const data = await fetch(config.url + slug);
-        const json = await data.json();
-        const realjson = json.data;
-        const pageData = mapData(realjson);
+        const pageData = mapData(datajson);
 
         setData(pageData[0]);
       } catch (e) {
