@@ -1,8 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GridImage /> should render 1`] = `
-.c3 {
+.c0 {
+  background: #FFFFFF;
   color: #0A1128;
+  background: #FFFFFF;
+  color: #0A1128;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  color: inherit;
   font-size: 6.4rem;
   text-transform: uppercase;
 }
@@ -44,20 +60,6 @@ exports[`<GridImage /> should render 1`] = `
   width: 100%;
 }
 
-.c0 {
-  background: #FFFFFF;
-  color: #0A1128;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 @media (max-width:768px) {
   .c3 {
     font-size: 4.0rem;
@@ -73,6 +75,7 @@ exports[`<GridImage /> should render 1`] = `
 <div>
   <div
     class="c0"
+    color="navy"
     id=""
   >
     <div
@@ -155,9 +158,25 @@ exports[`<GridImage /> should render 1`] = `
 </div>
 `;
 
-exports[`<GridImage /> should render without background 1`] = `
-.c3 {
+exports[`<GridImage /> should render without background and text color 1`] = `
+.c0 {
+  background: #FFFFFF;
   color: #0A1128;
+  background: #FFFFFF;
+  color: #0A1128;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  color: inherit;
   font-size: 6.4rem;
   text-transform: uppercase;
 }
@@ -199,20 +218,6 @@ exports[`<GridImage /> should render without background 1`] = `
   width: 100%;
 }
 
-.c0 {
-  background: #FFFFFF;
-  color: #0A1128;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 @media (max-width:768px) {
   .c3 {
     font-size: 4.0rem;
@@ -228,6 +233,7 @@ exports[`<GridImage /> should render without background 1`] = `
 <div>
   <div
     class="c0"
+    color="navy"
     id=""
   >
     <div

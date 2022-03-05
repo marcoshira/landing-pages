@@ -10,8 +10,8 @@ describe('<GridText />', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should render without background', () => {
-    const { container } = renderTheme(<GridText {...mock} background={undefined} />);
+  it('should render without background and text color', () => {
+    const { container } = renderTheme(<GridText {...mock} background={undefined} color={undefined} />);
     expect(container).toMatchSnapshot();
   });
 });

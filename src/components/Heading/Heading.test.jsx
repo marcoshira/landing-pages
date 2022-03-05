@@ -10,18 +10,8 @@ describe('<Heading />', () => {
     const heading = screen.getByRole('heading', { name: 'texto' });
 
     expect(heading).toHaveStyle({
-      color: theme.colors.primaryColor,
       'font-size': theme.font.sizes.xhuge,
       'text-transform': 'none',
-    });
-  });
-
-  it('should render with white color', () => {
-    renderTheme(<Heading colorDark={false}>texto</Heading>);
-    const heading = screen.getByRole('heading', { name: 'texto' });
-
-    expect(heading).toHaveStyle({
-      color: theme.colors.white,
     });
   });
 

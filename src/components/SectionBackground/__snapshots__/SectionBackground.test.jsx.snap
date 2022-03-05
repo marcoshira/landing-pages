@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SectionBackground /> should render with background dark and match snapshot 1`] = `
+exports[`<SectionBackground /> should render with background and text color crimson and match snapshot 1`] = `
 .c1 {
   max-width: 120rem;
   margin: 0 auto;
@@ -11,8 +11,8 @@ exports[`<SectionBackground /> should render with background dark and match snap
 .c0 {
   background: #FFFFFF;
   color: #0A1128;
-  background: #0A1128;
-  color: #FFFFFF;
+  background: crimson;
+  color: crimson;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,6 +27,7 @@ exports[`<SectionBackground /> should render with background dark and match snap
 <div>
   <div
     class="c0"
+    color="crimson"
     id=""
   >
     <div
@@ -40,7 +41,7 @@ exports[`<SectionBackground /> should render with background dark and match snap
 </div>
 `;
 
-exports[`<SectionBackground /> should render with background light and match snapshot 1`] = `
+exports[`<SectionBackground /> should render with background and text color default and match snapshot 1`] = `
 .c1 {
   max-width: 120rem;
   margin: 0 auto;
@@ -49,6 +50,8 @@ exports[`<SectionBackground /> should render with background light and match sna
 }
 
 .c0 {
+  background: #FFFFFF;
+  color: #0A1128;
   background: #FFFFFF;
   color: #0A1128;
   min-height: 100vh;
@@ -65,6 +68,89 @@ exports[`<SectionBackground /> should render with background light and match sna
 <div>
   <div
     class="c0"
+    color="navy"
+    id=""
+  >
+    <div
+      class="c1"
+    >
+      <h1>
+        Children
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SectionBackground /> should render with background and text color wrong thus default and match snapshot 1`] = `
+.c1 {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 3.2rem;
+  width: 100%;
+}
+
+.c0 {
+  background: #FFFFFF;
+  color: #0A1128;
+  background: #FFFFFF;
+  color: #0A1128;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div>
+  <div
+    class="c0"
+    color="navy"
+    id=""
+  >
+    <div
+      class="c1"
+    >
+      <h1>
+        Children
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SectionBackground /> should render without background and text color and match snapshot 1`] = `
+.c1 {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 3.2rem;
+  width: 100%;
+}
+
+.c0 {
+  background: #FFFFFF;
+  color: #0A1128;
+  background: #FFFFFF;
+  color: #0A1128;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<div>
+  <div
+    class="c0"
+    color="navy"
     id=""
   >
     <div

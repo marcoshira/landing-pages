@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { textcolor } from '../SectionBackground/styles';
 
 const titleSize = {
   small: (theme) => css`
@@ -27,8 +28,8 @@ const titleCase = (uppercase) => css`
 `;
 
 export const Title = styled.h1`
-  ${({ theme, colorDark, size, uppercase }) => css`
-    color: ${colorDark ? theme.colors.primaryColor : theme.colors.white};
+  ${({ theme, color, size, uppercase }) => css`
+    color: inherit;
     ${titleSize[size](theme)};
     ${titleCase(uppercase)};
   `}

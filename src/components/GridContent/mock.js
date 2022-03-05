@@ -27,5 +27,6 @@ export default {
     height: 80px;
   }
   </code></pre>`,
-  background: false,
+  background: 'white',
+  color: 'navy',
 };

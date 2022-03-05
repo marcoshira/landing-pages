@@ -1,4 +1,5 @@
 import {
+  mapSectionCarrousel,
   mapSectionContent,
   mapSectionImageGrid,
   mapSections,
@@ -15,7 +16,7 @@ describe('map-sections', () => {
     expect(data.title).toBe('');
     expect(data.text).toBe('');
     expect(data.srcImg).toBe('');
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('');
   });
 
@@ -55,14 +56,14 @@ describe('map-sections', () => {
         id: 4,
         name: 'Home',
         section_id: 'home',
-        background: true,
+        background: 'white',
       },
     });
     expect(data.component).toBe('section.section-two-columns');
     expect(data.title).toBe('January brings us Firefox 85');
     expect(data.text).toBe('abc');
     expect(data.srcImg).toBe('a.svg');
-    expect(data.background).toBe(true);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('home');
   });
 
@@ -71,7 +72,7 @@ describe('map-sections', () => {
     expect(data.component).toBe('');
     expect(data.title).toBe('');
     expect(data.html).toBe('');
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('');
   });
 
@@ -85,13 +86,13 @@ describe('map-sections', () => {
         id: 5,
         name: 'intro',
         section_id: 'intro',
-        background: false,
+        background: 'white',
       },
     });
     expect(data.component).toBe('section.section-content');
     expect(data.title).toBe('News coverage and some surprises');
     expect(data.html).toBe('<p>abc</p>');
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('intro');
   });
 
@@ -100,7 +101,7 @@ describe('map-sections', () => {
     expect(data.component).toBe('section.section-grid-text');
     expect(data.title).toBe('');
     expect(data.description).toBe('');
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('');
   });
 
@@ -122,7 +123,8 @@ describe('map-sections', () => {
       ],
       metadata: {
         section_id: 'grid-one',
-        background: true,
+        background: 'white',
+        color: 'navy',
       },
     });
     expect(data.component).toBe('section.section-grid-text');
@@ -130,7 +132,8 @@ describe('map-sections', () => {
     expect(data.description).toBe(
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias.',
     );
-    expect(data.background).toBe(true);
+    expect(data.background).toBe('white');
+    expect(data.color).toBe('navy');
     expect(data.sectionId).toBe('grid-one');
     expect(data.grid[0].title).toBe('Teste 1');
     expect(data.grid[0].description).toBe('Lorem ipsum dolor sit,');
@@ -141,7 +144,7 @@ describe('map-sections', () => {
     expect(data.component).toBe('section.section-grid-image');
     expect(data.title).toBe('');
     expect(data.description).toBe('');
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('');
   });
 
@@ -166,7 +169,7 @@ describe('map-sections', () => {
       text_grid: [],
       metadata: {
         section_id: 'gallery',
-        background: false,
+        background: 'white',
       },
     });
     expect(data.component).toBe('section.section-grid-image');
@@ -174,7 +177,7 @@ describe('map-sections', () => {
     expect(data.description).toBe(
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis cum delectus molestias',
     );
-    expect(data.background).toBe(false);
+    expect(data.background).toBe('white');
     expect(data.sectionId).toBe('gallery');
     expect(data.grid[0].srcImg).toBe('a.jpg');
     expect(data.grid[0].altText).toBe('Imagem aleatoria 2');
@@ -187,7 +190,7 @@ describe('map-sections', () => {
 
   it('should render a section', () => {
     const data = mapSections(pagesFakeData[0].attributes.sections);
-    expect(data[0].component).toBe('section.section-two-columns');
+    expect(data[0].component).toBe('section.section-content');
   });
 
   it('should render a section with fake data', () => {
@@ -217,6 +220,72 @@ describe('map-sections', () => {
       {
         __component: 'section.section-grid',
         image_grid: [{}],
+      },
+    ]);
+  });
+
+  it('should map section carrousel', () => {
+    const data = mapSectionCarrousel({
+      __component: 'section.section-carrousel',
+      title: 'Carrousel',
+      description: '',
+      carrousel_item: [
+        {
+          id: 1,
+          image_description: null,
+          image: {
+            data: {
+              attributes: {
+                alternativeText: 'imagem 1',
+                url: 'abc.jpg',
+              },
+            },
+          },
+        },
+        {
+          id: 2,
+          image_description: null,
+          image: {
+            data: {
+              attributes: {
+                alternativeText: 'imagem 2',
+                url: 'bca.jpg',
+              },
+            },
+          },
+        },
+      ],
+      metadata: {
+        section_id: 'carrousel',
+        background: 'white',
+        color: 'navy',
+      },
+    });
+    expect(data.component).toBe('section.section-carrousel');
+    expect(data.title).toBe('Carrousel');
+    expect(data.description).toBe('');
+    expect(data.background).toBe('white');
+    expect(data.color).toBe('navy');
+    expect(data.sectionId).toBe('carrousel');
+    expect(data.flex[0].srcImg).toBe('abc.jpg');
+    expect(data.flex[0].altText).toBe('imagem 1');
+  });
+
+  it('should map section carrousel with predetermined values', () => {
+    const data = mapSectionCarrousel();
+    expect(data.component).toBe('');
+    expect(data.title).toBe('');
+    expect(data.description).toBe('');
+    expect(data.background).toBe('white');
+    expect(data.color).toBe('navy');
+    expect(data.sectionId).toBe('');
+  });
+
+  it('should render empty carrousel', () => {
+    const data = mapSections([
+      {
+        __component: 'section.section-carrousel',
+        carrousel_item: [{}],
       },
     ]);
   });

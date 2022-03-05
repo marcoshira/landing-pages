@@ -4,18 +4,18 @@ import { SectionBackground } from '../SectionBackground';
 import { Heading } from '../Heading';
 import { TextComponent } from '../TextComponent';
 
-export const GridText = ({ title, description, grid, background = false, sectionId = '' }) => {
+export const GridText = ({ title, description, color = 'navy', grid, background = 'white', sectionId = '' }) => {
   return (
-    <SectionBackground background={background} sectionId={sectionId}>
+    <SectionBackground background={background} sectionId={sectionId} color={color}>
       <Styled.Container>
-        <Heading size="huge" uppercase colorDark={!background} as="h2">
+        <Heading size="huge" uppercase as="h2">
           {title}
         </Heading>
         <TextComponent>{description}</TextComponent>
         <Styled.Grid>
           {grid.map((el) => (
             <Styled.GridElement key={el.title}>
-              <Heading size="medium" colorDark={!background} as="h3">
+              <Heading size="medium" as="h3">
                 {el.title}
               </Heading>
               <TextComponent>{el.description}</TextComponent>
@@ -36,6 +36,35 @@ GridText.propTypes = {
       description: P.string.isRequired,
     }),
   ).isRequired,
-  background: P.bool,
+  background: P.oneOf([
+    'crimson',
+    'blue',
+    'navy',
+    'white',
+    'black',
+    'pink',
+    'purple',
+    'orange',
+    'green',
+    'lightBlue',
+    'yellow',
+    'brown',
+    'grey',
+  ]),
+  color: P.oneOf([
+    'crimson',
+    'blue',
+    'navy',
+    'white',
+    'black',
+    'pink',
+    'purple',
+    'orange',
+    'green',
+    'lightBlue',
+    'yellow',
+    'brown',
+    'grey',
+  ]),
   sectionId: P.string,
 };

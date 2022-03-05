@@ -7,6 +7,7 @@ describe('map-menu', () => {
     expect(menu.text).toBe('');
     expect(menu.srcImg).toBe('');
     expect(menu.link).toBe('');
+    expect(menu.links).toEqual([]);
   });
 
   it('should map menu data', () => {
@@ -15,7 +16,7 @@ describe('map-menu', () => {
       logo_text: 'logo',
       logo_link: '#home',
       logo: { data: { attributes: { url: 'img.svg' } } },
-      menu: [
+      menu_link: [
         {
           open_in_new_tab: false,
           url: '#contact',
@@ -33,7 +34,7 @@ describe('map-menu', () => {
   });
 
   it('should return an empty array if no links', () => {
-    const links = mapMenuLinks();
+    const links = mapMenuLinks([]);
     expect(links).toEqual([]);
   });
 
@@ -55,5 +56,9 @@ describe('map-menu', () => {
     expect(links[0].newTab).toBe(false);
     expect(links[0].link).toBe('');
     expect(links[0].children).toBe('');
+  });
+
+  it('should map links with no links', () => {
+    const links = mapMenuLinks();
   });
 });

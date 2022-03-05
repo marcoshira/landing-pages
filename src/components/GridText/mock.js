@@ -1,5 +1,6 @@
 export default {
-  background: false,
+  background: 'white',
+  color: 'navy',
   title: 'My grid',
   description: 'Atue doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde',
   grid: [

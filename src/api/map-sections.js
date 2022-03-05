@@ -15,6 +15,9 @@ export const mapSections = (sections = []) => {
         return mapSectionImageGrid(section);
       }
     }
+    if (section.__component === 'section.section-carrousel') {
+      return mapSectionCarrousel(section);
+    }
     return section;
   });
 };
@@ -25,7 +28,7 @@ export const mapSectionTwoColumns = (section = {}) => {
     title = '',
     description: text = '',
     image: { data: { attributes: { url: srcImg = '' } = '' } = '' } = '',
-    metadata: { background = false, section_id: sectionId = '' } = false,
+    metadata: { background = 'white', section_id: sectionId = '', color = 'navy' } = false,
   } = section;
 
   return {
@@ -35,6 +38,7 @@ export const mapSectionTwoColumns = (section = {}) => {
     srcImg,
     background,
     sectionId,
+    color,
   };
 };
 
@@ -43,7 +47,7 @@ export const mapSectionContent = (section = {}) => {
     __component: component = '',
     title = '',
     content: html = '',
-    metadata: { background = false, section_id: sectionId = '' } = false,
+    metadata: { background = 'white', section_id: sectionId = '', color = 'navy' } = false,
   } = section;
   return {
     component,
@@ -51,6 +55,7 @@ export const mapSectionContent = (section = {}) => {
     html,
     background,
     sectionId,
+    color,
   };
 };
 
@@ -60,13 +65,14 @@ export const mapSectionTextGrid = (section = {}) => {
     title = '',
     description = '',
     text_grid: grid = [],
-    metadata: { background = false, section_id: sectionId = '' } = false,
+    metadata: { background = 'white', section_id: sectionId = '', color = 'navy' } = false,
   } = section;
   return {
     component: 'section.section-grid-text',
     title,
     description,
     background,
+    color,
     sectionId,
     grid: grid.map((text) => {
       const { title = '', description = '' } = text;
@@ -81,7 +87,7 @@ export const mapSectionImageGrid = (section = {}) => {
     title = '',
     description = '',
     image_grid: grid = [],
-    metadata: { background = false, section_id: sectionId = '' } = false,
+    metadata: { background = 'white', section_id: sectionId = '', color = 'navy' } = false,
   } = section;
   return {
     component: 'section.section-grid-image',
@@ -89,7 +95,36 @@ export const mapSectionImageGrid = (section = {}) => {
     description,
     background,
     sectionId,
+    color,
     grid: grid.map((img) => {
+      const { image: { data: { attributes: { url: srcImg = '', alternativeText: altText = '' } = '' } = '' } = '' } =
+        img;
+      return {
+        srcImg,
+        altText,
+      };
+    }),
+  };
+};
+
+export const mapSectionCarrousel = (section = {}) => {
+  const {
+    __component: component = '',
+    title = '',
+    description = '',
+    carrousel_item: flex = [],
+    // image: { data: { attributes: { url: srcImg = '' } = '' } = '' } = '',
+    metadata: { background = 'white', section_id: sectionId = '', color = 'navy' } = false,
+  } = section;
+
+  return {
+    component,
+    title,
+    description,
+    background,
+    sectionId,
+    color,
+    flex: flex.map((img) => {
       const { image: { data: { attributes: { url: srcImg = '', alternativeText: altText = '' } = '' } = '' } = '' } =
         img;
       return {

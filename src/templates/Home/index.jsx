@@ -6,6 +6,7 @@ import { GridTwoColumn } from '../../components/GridTwoColumn';
 import { GridContent } from '../../components/GridContent';
 import { GridText } from '../../components/GridText';
 import { GridImage } from '../../components/GridImage';
+import { Carrousel } from '../../components/Carrousel';
 
 import { Base } from '../Base';
 import { mockBase } from '../Base/mock';
@@ -83,6 +84,10 @@ function Home() {
 
         if (component === 'section.section-grid-image') {
           return <GridImage key={key} {...section} />;
+        }
+
+        if (component === 'section.section-carrousel') {
+          return <Carrousel key={key} {...section} />;
         }
       })}
     </Base>
