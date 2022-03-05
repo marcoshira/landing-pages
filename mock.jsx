@@ -5,11 +5,11 @@ import { GridText } from '../../components/GridText';
 export const mockBase = {
   children: (
     <>
-      <GridText {...gridMock} background />
-      <GridText {...gridMock} background />
-      <GridText {...gridMock} background />
+      <GridText {...gridMock} background={'navy'} />
       <GridText {...gridMock} />
-      <GridText {...gridMock} background />
+      <GridText {...gridMock} background={'navy'} />
+      <GridText {...gridMock} />
+      <GridText {...gridMock} background={'navy'} />
       <GridText {...gridMock} />
     </>
   ),
